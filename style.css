@@ -1,5 +1,5 @@
 body {
-  height: 2000px;
+  min-height: 2000px;
 }
 
 #collapse {
@@ -18,15 +18,13 @@ body nav div a {
   font-family: Arial;
   font-style: normal;
   font-weight: bold;
-  font-size: 12px;
-  line-height: 28px;
   display: flex;
   align-items: center;
   text-align: center;
   color: #ffff;
 }
 .jumbotron {
-  padding-top: 8rem;
+  padding-top: 10rem;
   background-color: #ffffff;
 }
 section h1 {

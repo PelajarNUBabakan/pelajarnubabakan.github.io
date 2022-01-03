@@ -59,7 +59,7 @@
 
     <!-- Jumbotron -->
     <section class="jumbotron text-center">
-        <img src="img/img1.jpg" class="img-thumbnail mb-4 shadow border border-5" alt="Pelajar Nu Babakan" width="400">
+        <img src="img/img1.jpg" class=" mb-4 shadow border border-5" alt="Pelajar Nu Babakan" width="200">
         <h1 class="display-5 fw-bold" style="font-size: 25px;">
             <P>PIMPINAN ANAK CABANG</P>
             <p style="color:#159912;">IKATAN PELAJAR NAHDLATUL ULAMA</p>
@@ -108,7 +108,7 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" class="btn btn-kirim mb-3" style="background-color:#159912;"><a href="#"
+                    <button type="submit" class="btn mb-3" style="background-color:#159912;"><a href="#"
                             style="color: #fff;">More...</a></button>
                 </div>
             </div>
@@ -224,7 +224,7 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" class="btn btn-kirim mb-3" style="background-color:#159912;"><a href="#"
+                    <button type="submit" class="btn mb-3" style="background-color:#159912;"><a href="#"
                             style="color: #fff;">More...</a></button>
                 </div>
             </div>
@@ -249,31 +249,35 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form name="bozrey-kontak-form">
+
+                    <form name="Contact-Pelajar-NU-Babakan">
                         <div class="mb-4">
                             <label for="name" class="form-label">Nama Lengkap</label>
                             <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
                         </div>
                         <div class="mb-4">
-                            <label for="name" class="form-label">Delegasi</label>
-                            <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
+                            <label for="delegasi" class="form-label">Delegasi</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" name="delegasi">
                         </div>
                         <div class="mb-4">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
                         </div>
-                        <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
-                            <strong>Terima Kasih!</strong> Pesan anda sudah kami terima.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
                         <div class="mb-4">
                             <label for="pesan" class="form-label">Pesan</label>
                             <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
                         </div>
+                        <div class="alert alert-dismissible fade show d-none my-alert"
+                            style="background-color:#159912; color: #fff;" role="alert">
+                            <strong>Termia Kasih!</strong> Pesan Rekan/Rekanita Sudah Kami Terima.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <button type="submit" class="btn btn-kirim mb-3"
                             style="background-color:#159912; color: #fff;">Kirim</button>
-                        <button class=" btn btn-primary btn-loading d-none" type="button" disabled>
-                            <span class="spinner-border spinner-border-sm " role="status" aria-hidden="true"></span>
+
+                        <button class="btn mb-3 btn-loading d-none" style="background-color:#159912; color: #fff;" type="
+                            button" disabled>
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             Loading...
                         </button>
 
@@ -305,6 +309,33 @@
         crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzDtdU0IT9HZY-ljeKgXEZZWrULgQDDDDpwUqqaIeKgLFQz2lbQeSMaN-5EX-q4deYp1A/exec';
+        const form = document.forms['Contact-Pelajar-NU-Babakan'];
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            // ketika tombol kirim di klik
+            // tampilkan tombol loading, hilangkan tombol kirim
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    // tampilkan tombol kirim hilangkan tombol Loading
+                    btnLoading.classList.toggle('d-none');
+                    btnKirim.classList.toggle('d-none');
+                    // Tampilkan Alert
+                    myAlert.classList.toggle('d-none');
+                    // reset formnya
+                    console.log('Success!', response)
+                })
+                .catch(error => console.error('Error!', error.message))
+        });
+    </script>
 
 
 </body>

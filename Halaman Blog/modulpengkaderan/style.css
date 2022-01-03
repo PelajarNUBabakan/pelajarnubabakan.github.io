@@ -1,0 +1,36 @@
+body {
+  background: #ffffff;
+}
+
+body nav div a {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffff;
+}
+
+.jumbotron {
+  padding-top: 8rem;
+}
+
+section h1 {
+  font-family: Old Standard TT;
+  font-style: normal;
+  font-weight: bold;
+  color: #000000;
+}
+
+#list {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  display: flex;
+  color: rgb(5, 5, 5);
+}
